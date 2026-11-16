@@ -19,7 +19,7 @@ DATA_DIR = BASE / "data"
 CHUNK_SIZE = 700
 CHUNK_OVERLAP_BULLETS = 1
 TOP_K = 4
-DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+DEFAULT_EMBEDDING_MODEL = "BAAI/bge-small-en-v1.5"
 MIN_RETRIEVAL_SCORE = 0.05
 MIN_ANSWER_SCORE = 0.15  # below this, treat as no useful evidence (avoids off-topic TF-IDF noise)
 CITATION_RELATIVE_FLOOR = 0.55  # keep sources within 55% of top score
@@ -140,16 +140,16 @@ class RAGPipeline:
 
         if retrieval_backend != "tfidf":
             try:
-                from sentence_transformers import SentenceTransformer
+                from fastembed import TextEmbedding
 
-                self.embedding_model = SentenceTransformer(self.embedding_model_name)
-                self.embedding_matrix = self.embedding_model.encode(
-                    corpus,
-                    normalize_embeddings=True,
-                    convert_to_numpy=True,
-                    show_progress_bar=False,
+                self.embedding_model = TextEmbedding(model_name=self.embedding_model_name)
+                self.embedding_matrix = np.asarray(
+                    list(self.embedding_model.embed(corpus)), dtype=np.float32
                 )
-                self.retrieval_backend = "sentence-transformer"
+                self.embedding_matrix = self.embedding_matrix / np.maximum(
+                    np.linalg.norm(self.embedding_matrix, axis=1, keepdims=True), 1e-12
+                )
+                self.retrieval_backend = "fastembed"
                 return
             except Exception as exc:  # pragma: no cover - depends on model/network
                 self.embedding_error = f"{type(exc).__name__}: {exc}"
@@ -160,13 +160,11 @@ class RAGPipeline:
     def retrieve(self, query: str, top_k: int = TOP_K) -> list[dict[str, Any]]:
         if not query.strip():
             return []
-        if self.retrieval_backend == "sentence-transformer":
-            query_vec = self.embedding_model.encode(
-                [query],
-                normalize_embeddings=True,
-                convert_to_numpy=True,
-                show_progress_bar=False,
+        if self.retrieval_backend == "fastembed":
+            query_vec = np.asarray(
+                list(self.embedding_model.embed([query])), dtype=np.float32
             )[0]
+            query_vec = query_vec / max(float(np.linalg.norm(query_vec)), 1e-12)
             scores = np.asarray(self.embedding_matrix @ query_vec).flatten()
         else:
             query_vec = self.vectorizer.transform([query])

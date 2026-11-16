@@ -10,7 +10,7 @@
    ```
 
 3. Open `http://127.0.0.1:8000`.
-4. The default retrieval backend is sentence-transformer embeddings using `sentence-transformers/all-MiniLM-L6-v2`. Confirm the backend in `/api/demo`; it reports `sentence-transformer` when the model is available and `tfidf` when fallback is active.
+4. The default retrieval backend is FastEmbed using `BAAI/bge-small-en-v1.5`. Confirm the backend in `/api/demo`; it reports `fastembed` when the model is available and `tfidf` when fallback is active.
 5. Demonstrate the following questions:
 
    - `What should be checked for inverter derating?` — grounded answer and `solar_inverter_sop_test.md` citation.

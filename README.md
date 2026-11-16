@@ -9,7 +9,7 @@ Solar, wind, hydro, and grid operations teams need quick access to procedures wi
 ## Features
 
 - Markdown document loading, cleaning, and line-aware chunking
-- Sentence-transformer embeddings and cosine-similarity retrieval
+- FastEmbed dense embeddings and cosine-similarity retrieval
 - Deterministic TF-IDF fallback when embeddings are unavailable
 - Groq LLM answer generation through Groq's OpenAI-compatible API
 - Extractive fallback when `GROQ_API_KEY` is not configured
@@ -49,7 +49,7 @@ Preprocessing is implemented in `backend/rag.py`. At startup, the pipeline:
 2. Prefers files ending in `_test.md` when they are available.
 3. Removes empty lines and normalizes line whitespace.
 4. Groups procedure lines into chunks of approximately 700 characters with one-line overlap.
-5. Encodes chunks with `sentence-transformers/all-MiniLM-L6-v2` and uses cosine similarity for retrieval.
+5. Encodes chunks with FastEmbed using `BAAI/bge-small-en-v1.5` and uses cosine similarity for retrieval.
 6. Falls back to a TF-IDF matrix if the embedding package/model is unavailable or `RETRIEVAL_BACKEND=tfidf` is set.
 
 The `*_test.md` files are intentionally expanded bulk versions of the compact source documents. They contain more procedural coverage so that the full retrieval path can be tested end to end. They should be understood as a synthetic test corpus, not as a separate production data source. The `questions_test.csv` file is similarly an expanded, source-labelled evaluation set.
@@ -73,7 +73,7 @@ GROQ_MODEL=openai/gpt-oss-20b
 
 The key is loaded only from the environment. Without a key, retrieval, citations, abstention, and extractive fallback remain available; only generated LLM answers are disabled.
 
-The first run may download the sentence-transformer model. To use the lightweight local fallback explicitly, set `RETRIEVAL_BACKEND=tfidf`. No API key is required for embeddings.
+The first run may download the quantized FastEmbed model. To use the lightweight local fallback explicitly, set `RETRIEVAL_BACKEND=tfidf`. No API key is required for embeddings.
 
 Run the application:
 
@@ -123,7 +123,7 @@ Off-topic abstention accuracy was `1.000` across 5 questions. These values are r
 
 | Decision | Choice | Reason |
 |---|---|---|
-| Retrieval | Sentence-transformer embeddings + cosine similarity | Captures semantic similarity and supports paraphrased questions |
+| Retrieval | FastEmbed dense embeddings + cosine similarity | Captures semantic similarity and supports paraphrased questions |
 | Fallback retrieval | TF-IDF + cosine similarity | Keeps the demo usable without model download/access |
 | Generation | Groq via OpenAI-compatible SDK | Hosted generation with credentials supplied through environment variables |
 | Chunking | Line-aware chunks with overlap | Keeps procedure steps together and preserves local context |

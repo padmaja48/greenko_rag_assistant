@@ -54,7 +54,7 @@ def demo():
         "chunks_indexed": len(pipeline.chunks),
         "retrieval_backend": pipeline.retrieval_backend,
         "embedding_model": pipeline.embedding_model_name
-        if pipeline.retrieval_backend == "sentence-transformer"
+        if pipeline.retrieval_backend == "fastembed"
         else None,
     }
 
