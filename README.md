@@ -116,7 +116,7 @@ Latest local run:
 | Evaluation | Top-1 | Top-3 | MRR | Abstentions |
 |---|---:|---:|---:|---:|
 | Smoke test (2) | 1.000 | 1.000 | 1.000 | 0 |
-| Expanded set (394) | 0.891 | 0.977 | 0.933 | 46 |
+| Expanded set (394) | 0.906 | 0.997 | 0.948 | 27 |
 
 Off-topic abstention accuracy was `1.000` across 5 questions. These values are reproducible with `python -m backend.evaluate` and are stored in `evaluation_results.json`.
 

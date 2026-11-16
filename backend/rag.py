@@ -42,6 +42,33 @@ STOPWORDS = {
     "by", "as", "that", "this", "these", "those", "it", "its", "should", "must",
     "may", "can", "will", "would", "could", "about", "into", "over", "under",
 }
+TFIDF_STOPWORDS = set(TfidfVectorizer(stop_words="english").get_stop_words())
+
+
+def _normalize_tfidf_token(token: str) -> str:
+    """Apply small, deterministic inflection normalization for fallback retrieval."""
+    if token.endswith("ies") and len(token) > 4 and token not in {"series", "species"}:
+        return f"{token[:-3]}y"
+    if token.endswith("ing") and len(token) > 6:
+        return token[:-3]
+    if token.endswith("ed") and len(token) > 5:
+        return token[:-2]
+    if (
+        token.endswith("s")
+        and len(token) > 4
+        and not token.endswith(("ss", "us", "is"))
+    ):
+        return token[:-1]
+    return token
+
+
+def _tfidf_tokenizer(text: str) -> list[str]:
+    tokens = re.findall(r"[a-z0-9]+", text.lower())
+    return [
+        _normalize_tfidf_token(token)
+        for token in tokens
+        if token not in TFIDF_STOPWORDS
+    ]
 
 
 @dataclass
@@ -55,7 +82,11 @@ class RAGPipeline:
     def __init__(self, data_dir: Path | None = None) -> None:
         self.data_dir = data_dir or DATA_DIR
         self.chunks: list[Chunk] = []
-        self.vectorizer = TfidfVectorizer(stop_words="english")
+        self.vectorizer = TfidfVectorizer(
+            tokenizer=_tfidf_tokenizer,
+            token_pattern=None,
+            lowercase=True,
+        )
         self.matrix = None
         self.embedding_model = None
         self.embedding_matrix = None
