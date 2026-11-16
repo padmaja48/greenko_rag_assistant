@@ -73,7 +73,7 @@ GROQ_MODEL=openai/gpt-oss-20b
 
 The key is loaded only from the environment. Without a key, retrieval, citations, abstention, and extractive fallback remain available; only generated LLM answers are disabled.
 
-The first run may download the quantized FastEmbed model. To use the lightweight local fallback explicitly, set `RETRIEVAL_BACKEND=tfidf`. No API key is required for embeddings.
+The first run may download the quantized FastEmbed model. In `auto` mode the API starts with TF-IDF and upgrades to FastEmbed after the model is ready, so model download does not block the web server. To use the lightweight fallback explicitly, set `RETRIEVAL_BACKEND=tfidf`. No API key is required for embeddings.
 
 Run the application:
 

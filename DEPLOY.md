@@ -16,7 +16,7 @@ The app is configured for Railway with `Procfile`, `railway.toml`, and `nixpacks
 4. Deploy and generate a public domain.
 5. Open the public URL in a private browser window.
 
-The first deployment/startup may take longer because the quantized FastEmbed model is downloaded and cached. Confirm `/api/demo` reports `retrieval_backend: fastembed`. If the service cannot load the model, it automatically reports and uses the TF-IDF fallback; set `RETRIEVAL_BACKEND=tfidf` explicitly if needed.
+The quantized FastEmbed model downloads in the background on first startup. Confirm `/api/demo` eventually reports `retrieval_backend: fastembed` and `embedding_status: ready`. The app remains responsive with TF-IDF while the model loads; if the model cannot load, it remains on the TF-IDF fallback. Set `RETRIEVAL_BACKEND=tfidf` explicitly if needed.
 
 The start command is:
 

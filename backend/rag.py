@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import re
+import threading
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -61,6 +62,8 @@ class RAGPipeline:
         self.retrieval_backend = "tfidf"
         self.embedding_model_name = os.getenv("EMBEDDING_MODEL", DEFAULT_EMBEDDING_MODEL)
         self.embedding_error = None
+        self.embedding_status = "disabled"
+        self._embedding_thread = None
         self._build_index()
 
     def _load_documents(self) -> list[tuple[str, str]]:
@@ -126,6 +129,25 @@ class RAGPipeline:
 
         return chunks
 
+    def _try_build_embedding_index(self, corpus: list[str]) -> None:
+        """Build the semantic index, leaving TF-IDF active if it fails."""
+        self.embedding_status = "loading"
+        try:
+            from fastembed import TextEmbedding
+
+            model = TextEmbedding(model_name=self.embedding_model_name)
+            matrix = np.asarray(list(model.embed(corpus)), dtype=np.float32)
+            matrix = matrix / np.maximum(
+                np.linalg.norm(matrix, axis=1, keepdims=True), 1e-12
+            )
+            self.embedding_model = model
+            self.embedding_matrix = matrix
+            self.retrieval_backend = "fastembed"
+            self.embedding_status = "ready"
+        except Exception as exc:  # pragma: no cover - depends on model/network
+            self.embedding_error = f"{type(exc).__name__}: {exc}"
+            self.embedding_status = "fallback"
+
     def _build_index(self) -> None:
         self.chunks = []
         for source, text in self._load_documents():
@@ -138,24 +160,20 @@ class RAGPipeline:
         if retrieval_backend not in {"auto", "embeddings", "tfidf"}:
             retrieval_backend = "auto"
 
-        if retrieval_backend != "tfidf":
-            try:
-                from fastembed import TextEmbedding
-
-                self.embedding_model = TextEmbedding(model_name=self.embedding_model_name)
-                self.embedding_matrix = np.asarray(
-                    list(self.embedding_model.embed(corpus)), dtype=np.float32
-                )
-                self.embedding_matrix = self.embedding_matrix / np.maximum(
-                    np.linalg.norm(self.embedding_matrix, axis=1, keepdims=True), 1e-12
-                )
-                self.retrieval_backend = "fastembed"
-                return
-            except Exception as exc:  # pragma: no cover - depends on model/network
-                self.embedding_error = f"{type(exc).__name__}: {exc}"
-
         self.matrix = self.vectorizer.fit_transform(corpus)
         self.retrieval_backend = "tfidf"
+
+        if retrieval_backend == "embeddings":
+            self._try_build_embedding_index(corpus)
+        elif retrieval_backend == "auto":
+            # Keep API startup responsive while the local model downloads/loads.
+            self._embedding_thread = threading.Thread(
+                target=self._try_build_embedding_index,
+                args=(corpus,),
+                name="embedding-index-loader",
+                daemon=True,
+            )
+            self._embedding_thread.start()
 
     def retrieve(self, query: str, top_k: int = TOP_K) -> list[dict[str, Any]]:
         if not query.strip():

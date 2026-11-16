@@ -56,6 +56,7 @@ def demo():
         "embedding_model": pipeline.embedding_model_name
         if pipeline.retrieval_backend == "fastembed"
         else None,
+        "embedding_status": pipeline.embedding_status,
     }
 
 
