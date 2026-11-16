@@ -143,14 +143,14 @@ Known limitations:
 
 ## Demo and screenshots
 
-See [DEMO_NOTES.md](DEMO_NOTES.md) for the exact demo flow. Before submission, add these files under [docs/screenshots](docs/screenshots/):
+See [DEMO_NOTES.md](DEMO_NOTES.md) for the exact demo flow. The screenshot directory and capture checklist are in [docs/screenshots](docs/screenshots/):
 
-- `grounded-answer.png`
-- `off-topic-abstention.png`
-- `evaluation-results.png`
-- `railway-deployment.png`
+- [grounded-answer.png](docs/screenshots/grounded-answer.png)
+- [off-topic-abstention.png](docs/screenshots/off-topic-abstention.png)
+- [evaluation-results.png](docs/screenshots/evaluation-results.png)
+- [railway-deployment.png](docs/screenshots/railway-deployment.png)
 
-Do not capture API keys or private account details in screenshots.
+Capture these four files before submission; do not include API keys or private account details.
 
 ## Railway deployment
 
@@ -174,7 +174,7 @@ After deployment, smoke-test `/`, `/api/demo`, `/api/ask`, and `/api/evaluate`. 
 
 **Live URL:** <https://greenko-rag-assistant-production.up.railway.app>
 
-**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=7be09d9d-e491-4350-8c25-f8401b97b56b>
+**Verified Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=7be09d9d-e491-4350-8c25-f8401b97b56b>
 
 See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 
