@@ -10,7 +10,7 @@
    ```
 
 3. Open `http://127.0.0.1:8000`.
-4. The default retrieval backend is FastEmbed using `BAAI/bge-small-en-v1.5`. Confirm the backend in `/api/demo`; it reports `fastembed` when the model is available and `tfidf` when fallback is active.
+4. Confirm the active retrieval backend in `/api/demo`. Local `auto` mode attempts FastEmbed using `BAAI/bge-small-en-v1.5`; the live Railway demo intentionally reports `tfidf` because it uses the resource-safe deployment profile documented in `DEPLOY.md`.
 5. Demonstrate the following questions:
 
    - `What should be checked for inverter derating?` — grounded answer and `solar_inverter_sop_test.md` citation.

@@ -11,12 +11,13 @@ The app is configured for Railway with `Procfile`, `railway.toml`, and `nixpacks
    ```text
    GROQ_API_KEY=<secret>
    GROQ_MODEL=openai/gpt-oss-20b
+   RETRIEVAL_BACKEND=tfidf
    ```
 
 4. Deploy and generate a public domain.
 5. Open the public URL in a private browser window.
 
-The quantized FastEmbed model downloads in the background on first startup. Confirm `/api/demo` eventually reports `retrieval_backend: fastembed` and `embedding_status: ready`. The app remains responsive with TF-IDF while the model loads; if the model cannot load, it remains on the TF-IDF fallback. Set `RETRIEVAL_BACKEND=tfidf` explicitly if needed.
+The code supports FastEmbed dense embeddings, but the current small Railway service is configured with `RETRIEVAL_BACKEND=tfidf` for a stable deployment while retaining the same API, citations, abstention checks, and evaluation flow. On a larger service, set `RETRIEVAL_BACKEND=auto` to load FastEmbed in the background, or `RETRIEVAL_BACKEND=embeddings` to require it. Confirm the active profile through `/api/demo`.
 
 The start command is:
 
@@ -44,6 +45,7 @@ railway link
 railway up
 railway variables set GROQ_API_KEY=<secret>
 railway variables set GROQ_MODEL=openai/gpt-oss-20b
+railway variables set RETRIEVAL_BACKEND=tfidf
 railway domain
 ```
 

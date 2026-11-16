@@ -54,7 +54,7 @@ Preprocessing is implemented in `backend/rag.py`. At startup, the pipeline:
 
 The `*_test.md` files are intentionally expanded bulk versions of the compact source documents. They contain more procedural coverage so that the full retrieval path can be tested end to end. They should be understood as a synthetic test corpus, not as a separate production data source. The `questions_test.csv` file is similarly an expanded, source-labelled evaluation set.
 
-Groq is used for answer generation. Groq's current public API does not expose an embedding endpoint/model, so semantic retrieval uses the local sentence-transformer model above rather than pretending to call a non-existent Groq embedding model.
+Groq is used for answer generation. Groq's current public API does not expose an embedding endpoint/model, so semantic retrieval uses the local FastEmbed ONNX model above. The `openai` Python package remains a dependency only because it provides the OpenAI-compatible client used to call Groq; no OpenAI API key or OpenAI service is used.
 
 ## Local setup
 
@@ -69,6 +69,7 @@ Copy `.env.example` to `.env` and add your Groq credentials:
 ```env
 GROQ_API_KEY=your_groq_api_key_here
 GROQ_MODEL=openai/gpt-oss-20b
+RETRIEVAL_BACKEND=auto
 ```
 
 The key is loaded only from the environment. Without a key, retrieval, citations, abstention, and extractive fallback remain available; only generated LLM answers are disabled.
@@ -158,7 +159,10 @@ The repository includes `Procfile`, `railway.toml`, and `nixpacks.toml`. Create 
 ```text
 GROQ_API_KEY=<Railway secret variable>
 GROQ_MODEL=openai/gpt-oss-20b
+RETRIEVAL_BACKEND=tfidf
 ```
+
+The live Railway service currently uses the explicit TF-IDF profile because the small service instance was not stable while downloading and loading the FastEmbed model. The FastEmbed implementation remains in the repository and can be enabled with `RETRIEVAL_BACKEND=auto` or `RETRIEVAL_BACKEND=embeddings` on a larger Railway instance. This deployment profile preserves the live API and all existing citations, abstention, and evaluation behavior.
 
 The service start command is:
 
@@ -170,7 +174,7 @@ After deployment, smoke-test `/`, `/api/demo`, `/api/ask`, and `/api/evaluate`. 
 
 **Live URL:** <https://greenko-rag-assistant-production.up.railway.app>
 
-**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=07405204-75d7-4fe2-b812-be9fb0787294>
+**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=7be09d9d-e491-4350-8c25-f8401b97b56b>
 
 See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 
@@ -182,6 +186,6 @@ See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 - [x] Preprocessing and chunking documented in `backend/rag.py`
 - [x] Setup and run commands
 - [x] Evaluation script and generated results
-- [ ] Add four final screenshots under `docs/screenshots/`
-- [ ] Verify and add the Railway public URL
+- [ ] Add four final screenshots under `docs/screenshots/` (the exact capture checklist is in `DEMO_NOTES.md`)
+- [x] Verify and add the Railway public URL
 - [x] Secrets supplied through environment variables only
