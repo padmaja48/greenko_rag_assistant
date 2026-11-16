@@ -170,7 +170,7 @@ After deployment, smoke-test `/`, `/api/demo`, `/api/ask`, and `/api/evaluate`. 
 
 **Live URL:** <https://greenko-rag-assistant-production.up.railway.app>
 
-**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=e1102828-3308-49f8-ac77-060d2bf67eeb>
+**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=07405204-75d7-4fe2-b812-be9fb0787294>
 
 See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 
