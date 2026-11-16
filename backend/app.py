@@ -52,6 +52,10 @@ def demo():
         ),
         "documents_indexed": len({chunk.source for chunk in pipeline.chunks}),
         "chunks_indexed": len(pipeline.chunks),
+        "retrieval_backend": pipeline.retrieval_backend,
+        "embedding_model": pipeline.embedding_model_name
+        if pipeline.retrieval_backend == "sentence-transformer"
+        else None,
     }
 
 

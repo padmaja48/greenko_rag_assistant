@@ -9,7 +9,8 @@ Solar, wind, hydro, and grid operations teams need quick access to procedures wi
 ## Features
 
 - Markdown document loading, cleaning, and line-aware chunking
-- TF-IDF and cosine-similarity retrieval
+- Sentence-transformer embeddings and cosine-similarity retrieval
+- Deterministic TF-IDF fallback when embeddings are unavailable
 - Groq LLM answer generation through Groq's OpenAI-compatible API
 - Extractive fallback when `GROQ_API_KEY` is not configured
 - Source citations and retrieved evidence
@@ -21,7 +22,7 @@ Solar, wind, hydro, and grid operations teams need quick access to procedures wi
 ## Architecture
 
 ```text
-Markdown SOPs -> preprocess in backend/rag.py -> chunks -> TF-IDF retrieval
+Markdown SOPs -> preprocess in backend/rag.py -> chunks -> embeddings/cosine retrieval
 -> Groq answer constrained to evidence -> citations, grounding check, abstention
 ```
 
@@ -48,9 +49,12 @@ Preprocessing is implemented in `backend/rag.py`. At startup, the pipeline:
 2. Prefers files ending in `_test.md` when they are available.
 3. Removes empty lines and normalizes line whitespace.
 4. Groups procedure lines into chunks of approximately 700 characters with one-line overlap.
-5. Builds a TF-IDF matrix for cosine-similarity retrieval.
+5. Encodes chunks with `sentence-transformers/all-MiniLM-L6-v2` and uses cosine similarity for retrieval.
+6. Falls back to a TF-IDF matrix if the embedding package/model is unavailable or `RETRIEVAL_BACKEND=tfidf` is set.
 
 The `*_test.md` files are intentionally expanded bulk versions of the compact source documents. They contain more procedural coverage so that the full retrieval path can be tested end to end. They should be understood as a synthetic test corpus, not as a separate production data source. The `questions_test.csv` file is similarly an expanded, source-labelled evaluation set.
+
+Groq is used for answer generation. Groq's current public API does not expose an embedding endpoint/model, so semantic retrieval uses the local sentence-transformer model above rather than pretending to call a non-existent Groq embedding model.
 
 ## Local setup
 
@@ -68,6 +72,8 @@ GROQ_MODEL=openai/gpt-oss-20b
 ```
 
 The key is loaded only from the environment. Without a key, retrieval, citations, abstention, and extractive fallback remain available; only generated LLM answers are disabled.
+
+The first run may download the sentence-transformer model. To use the lightweight local fallback explicitly, set `RETRIEVAL_BACKEND=tfidf`. No API key is required for embeddings.
 
 Run the application:
 
@@ -117,7 +123,8 @@ Off-topic abstention accuracy was `1.000` across 5 questions. These values are r
 
 | Decision | Choice | Reason |
 |---|---|---|
-| Retrieval | TF-IDF + cosine similarity | Explainable, lightweight, and suitable for the small keyword-heavy corpus |
+| Retrieval | Sentence-transformer embeddings + cosine similarity | Captures semantic similarity and supports paraphrased questions |
+| Fallback retrieval | TF-IDF + cosine similarity | Keeps the demo usable without model download/access |
 | Generation | Groq via OpenAI-compatible SDK | Hosted generation with credentials supplied through environment variables |
 | Chunking | Line-aware chunks with overlap | Keeps procedure steps together and preserves local context |
 | Grounding check | Lexical overlap plus retrieval threshold | Simple, transparent signal for a screening prototype |
@@ -126,7 +133,8 @@ Off-topic abstention accuracy was `1.000` across 5 questions. These values are r
 Known limitations:
 
 - The corpus and evaluation questions are synthetic and small.
-- TF-IDF can miss paraphrases and semantic synonyms that dense embeddings would retrieve.
+- Embedding quality depends on the selected local model; the model is general-purpose rather than energy-domain fine-tuned.
+- The TF-IDF fallback can miss paraphrases and semantic synonyms.
 - The grounding check is a heuristic, not a formal faithfulness or NLI evaluation.
 - There is no authentication, rate limiting, audit logging, PII handling, or live SCADA integration.
 - Safety-critical answers require review by qualified site personnel.

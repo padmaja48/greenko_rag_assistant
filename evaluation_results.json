@@ -1,5 +1,7 @@
 {
   "metric_scope": "Synthetic/source-level retrieval benchmark. Results are not a production accuracy or safety guarantee.",
+  "retrieval_backend": "tfidf",
+  "embedding_model": null,
   "smoke_test": {
     "dataset": "questions.csv",
     "metric_scope": "synthetic source-level retrieval benchmark",

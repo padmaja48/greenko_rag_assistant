@@ -143,6 +143,12 @@ def build_report() -> dict[str, Any]:
             "Synthetic/source-level retrieval benchmark. Results are not a production "
             "accuracy or safety guarantee."
         ),
+        "retrieval_backend": pipeline.retrieval_backend,
+        "embedding_model": (
+            pipeline.embedding_model_name
+            if pipeline.retrieval_backend == "sentence-transformer"
+            else None
+        ),
         "smoke_test": smoke,
         "expanded_evaluation": expanded,
         "off_topic_evaluation": off_topic,

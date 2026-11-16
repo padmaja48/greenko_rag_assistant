@@ -10,13 +10,14 @@
    ```
 
 3. Open `http://127.0.0.1:8000`.
-4. Demonstrate the following questions:
+4. The default retrieval backend is sentence-transformer embeddings using `sentence-transformers/all-MiniLM-L6-v2`. Confirm the backend in `/api/demo`; it reports `sentence-transformer` when the model is available and `tfidf` when fallback is active.
+5. Demonstrate the following questions:
 
    - `What should be checked for inverter derating?` — grounded answer and `solar_inverter_sop_test.md` citation.
    - `How should gearbox vibration be investigated?` — grounded answer and `wind_turbine_maintenance_test.md` citation.
    - `How do I bake a chocolate cake?` — abstention with no citation.
 
-5. Click **Run evaluation** and show the smoke, expanded, and off-topic sections.
+6. Click **Run evaluation** and show the smoke, expanded, and off-topic sections.
 
 ## Evaluation commands
 

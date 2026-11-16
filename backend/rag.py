@@ -1,4 +1,4 @@
-"""RAG pipeline: preprocess docs, retrieve with TF-IDF, answer with Groq, and check grounding."""
+"""RAG pipeline: preprocess docs, embed/retrieve, answer with Groq, and check grounding."""
 
 from __future__ import annotations
 
@@ -8,6 +8,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+import numpy as np
 from openai import OpenAI
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
@@ -18,6 +19,7 @@ DATA_DIR = BASE / "data"
 CHUNK_SIZE = 700
 CHUNK_OVERLAP_BULLETS = 1
 TOP_K = 4
+DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 MIN_RETRIEVAL_SCORE = 0.05
 MIN_ANSWER_SCORE = 0.15  # below this, treat as no useful evidence (avoids off-topic TF-IDF noise)
 CITATION_RELATIVE_FLOOR = 0.55  # keep sources within 55% of top score
@@ -54,6 +56,11 @@ class RAGPipeline:
         self.chunks: list[Chunk] = []
         self.vectorizer = TfidfVectorizer(stop_words="english")
         self.matrix = None
+        self.embedding_model = None
+        self.embedding_matrix = None
+        self.retrieval_backend = "tfidf"
+        self.embedding_model_name = os.getenv("EMBEDDING_MODEL", DEFAULT_EMBEDDING_MODEL)
+        self.embedding_error = None
         self._build_index()
 
     def _load_documents(self) -> list[tuple[str, str]]:
@@ -124,13 +131,46 @@ class RAGPipeline:
         for source, text in self._load_documents():
             self.chunks.extend(self._chunk_text(source, text))
         corpus = [c.text for c in self.chunks]
+
+        # Semantic embeddings are the primary retrieval path. TF-IDF remains a
+        # deterministic fallback so the demo still works without model access.
+        retrieval_backend = os.getenv("RETRIEVAL_BACKEND", "auto").lower()
+        if retrieval_backend not in {"auto", "embeddings", "tfidf"}:
+            retrieval_backend = "auto"
+
+        if retrieval_backend != "tfidf":
+            try:
+                from sentence_transformers import SentenceTransformer
+
+                self.embedding_model = SentenceTransformer(self.embedding_model_name)
+                self.embedding_matrix = self.embedding_model.encode(
+                    corpus,
+                    normalize_embeddings=True,
+                    convert_to_numpy=True,
+                    show_progress_bar=False,
+                )
+                self.retrieval_backend = "sentence-transformer"
+                return
+            except Exception as exc:  # pragma: no cover - depends on model/network
+                self.embedding_error = f"{type(exc).__name__}: {exc}"
+
         self.matrix = self.vectorizer.fit_transform(corpus)
+        self.retrieval_backend = "tfidf"
 
     def retrieve(self, query: str, top_k: int = TOP_K) -> list[dict[str, Any]]:
         if not query.strip():
             return []
-        query_vec = self.vectorizer.transform([query])
-        scores = cosine_similarity(query_vec, self.matrix).flatten()
+        if self.retrieval_backend == "sentence-transformer":
+            query_vec = self.embedding_model.encode(
+                [query],
+                normalize_embeddings=True,
+                convert_to_numpy=True,
+                show_progress_bar=False,
+            )[0]
+            scores = np.asarray(self.embedding_matrix @ query_vec).flatten()
+        else:
+            query_vec = self.vectorizer.transform([query])
+            scores = cosine_similarity(query_vec, self.matrix).flatten()
         ranked = sorted(enumerate(scores), key=lambda x: x[1], reverse=True)[:top_k]
         results: list[dict[str, Any]] = []
         for idx, score in ranked:
