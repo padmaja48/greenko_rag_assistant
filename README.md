@@ -147,10 +147,9 @@ See [DEMO_NOTES.md](DEMO_NOTES.md) for the exact demo flow. The screenshot direc
 
 - [grounded-answer.png](docs/screenshots/grounded-answer.png)
 - [off-topic-abstention.png](docs/screenshots/off-topic-abstention.png)
-- [evaluation-results.png](docs/screenshots/evaluation-results.png)
 - [railway-deployment.png](docs/screenshots/railway-deployment.png)
 
-Capture these four files before submission; do not include API keys or private account details.
+Capture these three files before submission; evaluation evidence remains available in `evaluation_results.json` and through `GET /api/evaluate`. Do not include API keys or private account details.
 
 ## Railway deployment
 
@@ -187,6 +186,6 @@ See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 - [x] Setup and run commands
 - [x] Evaluation script and generated results
 - [x] Demo notes and screenshot directory/checklist
-- [ ] Optional PNG captures under `docs/screenshots/` (the required short demo notes are in `DEMO_NOTES.md`)
+- [ ] Optional PNG captures under `docs/screenshots/` (the required short demo notes and evaluation report are in `DEMO_NOTES.md` and `evaluation_results.json`)
 - [x] Verify and add the Railway public URL
 - [x] Secrets supplied through environment variables only

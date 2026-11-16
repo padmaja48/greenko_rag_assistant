@@ -33,8 +33,7 @@ Save screenshots under `docs/screenshots/`:
 
 1. `grounded-answer.png` — answer, citation, retrieval evidence, and grounding badge.
 2. `off-topic-abstention.png` — unrelated question, abstention message, and no citation.
-3. `evaluation-results.png` — expanded evaluation metrics from `evaluation_results.json` or `GET /api/evaluate`.
-4. `railway-deployment.png` — the deployed homepage with the public URL visible.
+3. `railway-deployment.png` — the deployed homepage with the public URL visible.
 
 Do not show API keys, Railway variable values, or personal account information.
 
