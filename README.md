@@ -160,7 +160,9 @@ uvicorn backend.app:app --host 0.0.0.0 --port $PORT
 
 After deployment, smoke-test `/`, `/api/demo`, `/api/ask`, and `/api/evaluate`. Record the final public URL below only after verifying it in a private browser window.
 
-**Live URL:** Add the verified Railway URL here.
+**Live URL:** <https://greenko-rag-assistant-production.up.railway.app>
+
+**Latest Railway deployment:** <https://railway.com/project/7381b650-24e7-4239-8735-045c789d02ae/service/e8013f4b-591b-4351-81bd-004a20834a9c?id=e1102828-3308-49f8-ac77-060d2bf67eeb>
 
 See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 
