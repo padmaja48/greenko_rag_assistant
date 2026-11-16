@@ -147,7 +147,7 @@ See [DEMO_NOTES.md](DEMO_NOTES.md) for the exact demo flow. The screenshot direc
 
 - [grounded-answer.png](docs/screenshots/grounded-answer.png)
 - [off-topic-abstention.png](docs/screenshots/off-topic-abstention.png)
-- [railway-deployment.png](docs/screenshots/railway-deployment.png)
+- [railway-deployment.jpeg](docs/screenshots/railway-deployment.jpeg)
 
 Capture these three files before submission; evaluation evidence remains available in `evaluation_results.json` and through `GET /api/evaluate`. Do not include API keys or private account details.
 
