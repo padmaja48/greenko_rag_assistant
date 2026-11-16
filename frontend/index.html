@@ -162,7 +162,6 @@
       </div>
       <div class="actions">
         <button id="askBtn" onclick="ask()">Ask assistant</button>
-        <button class="secondary" onclick="runEval()">Run evaluation</button>
         <button class="secondary" id="testQuestionBtn" onclick="loadRandomTestQuestion()">Random test question</button>
       </div>
       <p id="testQuestionStatus" class="muted test-status hidden"></p>
@@ -186,10 +185,6 @@
       <p id="limitations" class="muted"></p>
     </section>
 
-    <section class="panel hidden" id="evalPanel">
-      <h2>Evaluation results</h2>
-      <pre id="evalOut"></pre>
-    </section>
   </main>
 
   <script>
@@ -300,19 +295,6 @@
 
       document.getElementById("hallucination").textContent =
         `${hc.notes || ""} (overlap_ratio=${hc.overlap_ratio ?? "n/a"})`;
-    }
-
-    async function runEval() {
-      const panel = document.getElementById("evalPanel");
-      panel.classList.remove("hidden");
-      document.getElementById("evalOut").textContent = "Running…";
-      try {
-        const r = await fetch("/api/evaluate");
-        const data = await r.json();
-        document.getElementById("evalOut").textContent = JSON.stringify(data, null, 2);
-      } catch (e) {
-        document.getElementById("evalOut").textContent = "Evaluation failed: " + e;
-      }
     }
 
     async function loadRandomTestQuestion() {

@@ -17,7 +17,7 @@
    - `How should gearbox vibration be investigated?` — grounded answer and `wind_turbine_maintenance_test.md` citation.
    - `How do I bake a chocolate cake?` — abstention with no citation.
 
-6. Click **Run evaluation** and show the smoke, expanded, and off-topic sections.
+6. Run `python -m backend.evaluate` to generate the smoke, expanded, and off-topic report. The same report is available from the retained `GET /api/evaluate` endpoint.
 
 ## Evaluation commands
 
@@ -33,7 +33,7 @@ Save screenshots under `docs/screenshots/`:
 
 1. `grounded-answer.png` — answer, citation, retrieval evidence, and grounding badge.
 2. `off-topic-abstention.png` — unrelated question, abstention message, and no citation.
-3. `evaluation-results.png` — expanded evaluation metrics in the UI or JSON output.
+3. `evaluation-results.png` — expanded evaluation metrics from `evaluation_results.json` or `GET /api/evaluate`.
 4. `railway-deployment.png` — the deployed homepage with the public URL visible.
 
 Do not show API keys, Railway variable values, or personal account information.
