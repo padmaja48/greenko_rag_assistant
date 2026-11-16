@@ -1,0 +1,395 @@
+question,expected_source
+What should be checked for inverter derating?,solar_inverter_sop_test.md
+How should gearbox vibration be investigated?,wind_turbine_maintenance_test.md
+Which forecast should be compared with actual generation?,grid_operations_note_test.md
+What should be recorded for every generation deviation?,grid_operations_note_test.md
+What must be confirmed before assigning deviation to weather?,grid_operations_note_test.md
+What instruction can affect export during a deviation?,grid_operations_note_test.md
+What grid measurement trend should be reviewed during deviation?,grid_operations_note_test.md
+What should be verified on SCADA measurements?,grid_operations_note_test.md
+Which clock should be used for event timestamps?,grid_operations_note_test.md
+Who should receive unexplained deviation escalations?,grid_operations_note_test.md
+What should be preserved with a deviation report?,grid_operations_note_test.md
+What should be compared with the plant export meter?,grid_operations_note_test.md
+What maintenance record should be reviewed for reduced generation?,grid_operations_note_test.md
+What equipment history should be checked before investigating faults?,grid_operations_note_test.md
+What must be synchronized across plant and grid systems?,grid_operations_note_test.md
+What should be logged for a transmission constraint?,grid_operations_note_test.md
+What type of warnings can explain a rapid output change?,grid_operations_note_test.md
+Which data is reviewed for solar generation deviation?,grid_operations_note_test.md
+Which weather data is reviewed for wind deviation?,grid_operations_note_test.md
+What must be validated before calculating energy variance?,grid_operations_note_test.md
+What operating reserve should be recorded?,grid_operations_note_test.md
+What limit can constrain active power output?,grid_operations_note_test.md
+What control function should be confirmed when required?,grid_operations_note_test.md
+How should dispatch instructions be reviewed?,grid_operations_note_test.md
+How should missing telemetry be marked?,grid_operations_note_test.md
+What alarm history should be checked for data gaps?,grid_operations_note_test.md
+What averaging interval should be used first?,grid_operations_note_test.md
+What determines whether a deviation is escalated?,grid_operations_note_test.md
+Who should be notified before changing a grid-facing setpoint?,grid_operations_note_test.md
+What operator detail should be recorded for dispatch instructions?,grid_operations_note_test.md
+What should be checked after a protection relay operates?,grid_operations_note_test.md
+What loading should be verified against its limit?,grid_operations_note_test.md
+What electrical measurement should be reviewed before reduced export is diagnosed?,grid_operations_note_test.md
+What notice should be checked for a transmission constraint?,grid_operations_note_test.md
+Which drawing shows the active grid topology?,grid_operations_note_test.md
+What schedule should be kept with the daily log?,grid_operations_note_test.md
+What event should be checked during an islanding investigation?,grid_operations_note_test.md
+What restoration detail should be recorded after grid interruption?,grid_operations_note_test.md
+What check is required before reconnecting an isolated unit?,grid_operations_note_test.md
+What performance should be reviewed after a grid disturbance?,grid_operations_note_test.md
+Which relay indications should be checked?,grid_operations_note_test.md
+What must be confirmed about a curtailment command?,grid_operations_note_test.md
+What times should be recorded for curtailment?,grid_operations_note_test.md
+How should grid-driven and plant-driven limitations be separated?,grid_operations_note_test.md
+What should curtailment energy be reconciled with?,grid_operations_note_test.md
+What limit may be active during recovery?,grid_operations_note_test.md
+What should be verified against the operating procedure?,grid_operations_note_test.md
+How should ramp compliance be reviewed?,grid_operations_note_test.md
+What requires technical review when repeated?,grid_operations_note_test.md
+Which notice should operators review for network operation?,grid_operations_note_test.md
+Who should review abnormal grid events?,grid_operations_note_test.md
+What should be used if the primary dispatch link fails?,grid_operations_note_test.md
+What should be recorded when a backup communication channel is activated?,grid_operations_note_test.md
+When should the control-room hotline be tested?,grid_operations_note_test.md
+Who should receive failed telemetry reports?,grid_operations_note_test.md
+What data source should be checked before a dashboard screenshot?,grid_operations_note_test.md
+How should daylight-saving adjustments be handled in local logs?,grid_operations_note_test.md
+What should be standardized in every operations report?,grid_operations_note_test.md
+When should unit conversion be performed?,grid_operations_note_test.md
+What measurement convention must be checked?,grid_operations_note_test.md
+How should negative export values be handled?,grid_operations_note_test.md
+What weather station status should be reviewed?,grid_operations_note_test.md
+What sensor conditions can affect weather input?,grid_operations_note_test.md
+What should be compared when a measurement is anomalous?,grid_operations_note_test.md
+What must be documented during data substitution?,grid_operations_note_test.md
+Who approves closure of an unexplained deviation?,grid_operations_note_test.md
+What should be attached to a deviation investigation?,grid_operations_note_test.md
+How should alarms be ranked?,grid_operations_note_test.md
+What record gives millisecond event sequence information?,grid_operations_note_test.md
+What should be preserved before clearing a protection alarm?,grid_operations_note_test.md
+Who authorizes alarm shelving?,grid_operations_note_test.md
+What should be reviewed at the start of every shift?,grid_operations_note_test.md
+What records should be compared at shift handover?,grid_operations_note_test.md
+What should be identified before making dispatch changes?,grid_operations_note_test.md
+Where should outstanding grid requests be recorded?,grid_operations_note_test.md
+Which list should be verified at the control desk?,grid_operations_note_test.md
+What document revision should be available to operators?,grid_operations_note_test.md
+What must be checked before changing protection settings?,grid_operations_note_test.md
+What requires approved authorization before bypassing?,grid_operations_note_test.md
+What detail should a temporary operating restriction include?,grid_operations_note_test.md
+When can an expired restriction be removed?,grid_operations_note_test.md
+What instructions should be reviewed during a restoration drill?,grid_operations_note_test.md
+What should be identified in the restoration plan?,grid_operations_note_test.md
+What backup status should be checked for communication equipment?,grid_operations_note_test.md
+What should be tested for redundant power supplies?,grid_operations_note_test.md
+What timing problem must be reported immediately?,grid_operations_note_test.md
+What should be checked after a timing alarm?,grid_operations_note_test.md
+How should event order be compared?,grid_operations_note_test.md
+What should be recorded for each closed event?,grid_operations_note_test.md
+What should be created when a deviation recurs?,grid_operations_note_test.md
+What two details should each corrective action have?,grid_operations_note_test.md
+How should recurring deviations be trended?,grid_operations_note_test.md
+Who should review monthly deviation trends?,grid_operations_note_test.md
+What may require a forecast model update?,grid_operations_note_test.md
+When should operational lessons be shared?,grid_operations_note_test.md
+Where should the signed deviation report be archived?,grid_operations_note_test.md
+What controls edits to finalized event records?,grid_operations_note_test.md
+What data backups should be verified?,grid_operations_note_test.md
+When should archived log restoration be tested?,grid_operations_note_test.md
+What is required before closing an investigation?,grid_operations_note_test.md
+What is required before spillway gate inspection?,hydro_safety_brief_test.md
+What type of briefing is needed before hydro work?,hydro_safety_brief_test.md
+What document must be approved before inspection?,hydro_safety_brief_test.md
+What energy sources should be identified?,hydro_safety_brief_test.md
+What must be applied before entering a danger zone?,hydro_safety_brief_test.md
+How is isolation effectiveness checked?,hydro_safety_brief_test.md
+Who controls personal lock keys?,hydro_safety_brief_test.md
+Who must acknowledge the isolation boundary?,hydro_safety_brief_test.md
+What gate information should be recorded before inspection?,hydro_safety_brief_test.md
+Which upstream condition must be checked?,hydro_safety_brief_test.md
+What must be monitored throughout inspection?,hydro_safety_brief_test.md
+When should hydro work stop due to water level?,hydro_safety_brief_test.md
+What downstream condition should be confirmed?,hydro_safety_brief_test.md
+What walkway hazards should be inspected?,hydro_safety_brief_test.md
+When is a personal flotation device required?,hydro_safety_brief_test.md
+What protection is required near unguarded edges?,hydro_safety_brief_test.md
+What should be inspected before using fall protection?,hydro_safety_brief_test.md
+How should wet access stairs be used?,hydro_safety_brief_test.md
+What access equipment should remain clear?,hydro_safety_brief_test.md
+What should be checked in the inspection area?,hydro_safety_brief_test.md
+What must be confirmed about the evacuation route?,hydro_safety_brief_test.md
+What should be confirmed with the work party?,hydro_safety_brief_test.md
+How should headcount be handled?,hydro_safety_brief_test.md
+What communication must be established with control room?,hydro_safety_brief_test.md
+What should happen before the task starts on the radio?,hydro_safety_brief_test.md
+What backup should be carried in low-signal areas?,hydro_safety_brief_test.md
+What should happen after loss of communication?,hydro_safety_brief_test.md
+Which plan should be reviewed before mobilization?,hydro_safety_brief_test.md
+What rescue equipment must be confirmed?,hydro_safety_brief_test.md
+Who should be briefed on the gate location?,hydro_safety_brief_test.md
+Who should not be relied on for water rescue?,hydro_safety_brief_test.md
+What should be checked before an outdoor inspection?,hydro_safety_brief_test.md
+When should exposed work stop due to lightning?,hydro_safety_brief_test.md
+When should flood risk be reassessed?,hydro_safety_brief_test.md
+What should be checked for floating material?,hydro_safety_brief_test.md
+Where should workers avoid standing during lifting?,hydro_safety_brief_test.md
+What area must be barricaded during lifting?,hydro_safety_brief_test.md
+What should be inspected before using a hoist?,hydro_safety_brief_test.md
+How should lifting capacity be selected?,hydro_safety_brief_test.md
+Who guides blind lifting movements?,hydro_safety_brief_test.md
+What hazard exists around gate mechanisms?,hydro_safety_brief_test.md
+What tools are recommended near electrical equipment?,hydro_safety_brief_test.md
+What must portable electrical tools have?,hydro_safety_brief_test.md
+What protection is used for temporary electrical supplies?,hydro_safety_brief_test.md
+How should temporary cables be routed?,hydro_safety_brief_test.md
+What should protect electrical panels from moisture?,hydro_safety_brief_test.md
+What must be tested for enclosed hydro spaces?,hydro_safety_brief_test.md
+Which requirements apply to confined-space entry?,hydro_safety_brief_test.md
+Who is assigned during confined-space entry?,hydro_safety_brief_test.md
+What must be monitored continuously during entry?,hydro_safety_brief_test.md
+What rescue method should be prepared?,hydro_safety_brief_test.md
+What should ventilate enclosed areas?,hydro_safety_brief_test.md
+When should entry stop due to atmosphere readings?,hydro_safety_brief_test.md
+What should be checked around hydraulic power units?,hydro_safety_brief_test.md
+Why must hydraulic oil be cleaned promptly?,hydro_safety_brief_test.md
+What should happen before hydraulic maintenance?,hydro_safety_brief_test.md
+Where should stored pressure be released?,hydro_safety_brief_test.md
+What gloves are needed for hydraulic fluids?,hydro_safety_brief_test.md
+What information should be available for site chemicals?,hydro_safety_brief_test.md
+How should temporary chemical containers be identified?,hydro_safety_brief_test.md
+Where should oily rags be disposed?,hydro_safety_brief_test.md
+What is required before welding or cutting?,hydro_safety_brief_test.md
+Which permit is needed for ignition sources?,hydro_safety_brief_test.md
+What should be removed before hot work?,hydro_safety_brief_test.md
+What is needed after hot work?,hydro_safety_brief_test.md
+What should be checked before hot work?,hydro_safety_brief_test.md
+What should be protected from sparks and heat?,hydro_safety_brief_test.md
+What protection is needed near turbines and pumps?,hydro_safety_brief_test.md
+What protection is needed during cleaning?,hydro_safety_brief_test.md
+When is head protection required?,hydro_safety_brief_test.md
+What footwear is suitable for wet floors?,hydro_safety_brief_test.md
+What should be inspected before using handrails?,hydro_safety_brief_test.md
+What should happen to damaged grating?,hydro_safety_brief_test.md
+What should remain clear during rainy season?,hydro_safety_brief_test.md
+What should not be used as a walking surface?,hydro_safety_brief_test.md
+Which routes should be used around open channels?,hydro_safety_brief_test.md
+What should be secured before high-flow operations?,hydro_safety_brief_test.md
+What must be confirmed before gate testing?,hydro_safety_brief_test.md
+How should gate movement be announced?,hydro_safety_brief_test.md
+How should a functional gate test begin?,hydro_safety_brief_test.md
+When should a gate test stop?,hydro_safety_brief_test.md
+What gate equipment symptoms should be recorded?,hydro_safety_brief_test.md
+What should be investigated before restarting after interruptions?,hydro_safety_brief_test.md
+What should be verified after gate-drive maintenance?,hydro_safety_brief_test.md
+What should be checked during emergency-stop testing?,hydro_safety_brief_test.md
+What must be restored before service return?,hydro_safety_brief_test.md
+What should be removed during closeout?,hydro_safety_brief_test.md
+Who participates in the final area inspection?,hydro_safety_brief_test.md
+When can a permit be closed?,hydro_safety_brief_test.md
+Who may remove a personal lock?,hydro_safety_brief_test.md
+Who receives the isolation release notice?,hydro_safety_brief_test.md
+What should be added to the gate inspection record?,hydro_safety_brief_test.md
+What should be attached to a maintenance work order?,hydro_safety_brief_test.md
+How should hydro defects be prioritized?,hydro_safety_brief_test.md
+Which defects require escalation?,hydro_safety_brief_test.md
+When should near misses be reviewed?,hydro_safety_brief_test.md
+Who should receive hydro corrective actions?,hydro_safety_brief_test.md
+What should contractors understand?,hydro_safety_brief_test.md
+How should visitor access be handled?,hydro_safety_brief_test.md
+Where should emergency numbers be posted?,hydro_safety_brief_test.md
+What should be recorded after the hydro task?,hydro_safety_brief_test.md
+What should be reviewed for an inverter?,solar_inverter_sop_test.md
+What should be recorded for each affected DC input?,solar_inverter_sop_test.md
+What must be done before opening an inverter enclosure?,solar_inverter_sop_test.md
+What should be inspected when inverter temperature is high?,solar_inverter_sop_test.md
+What should be checked around the inverter enclosure?,solar_inverter_sop_test.md
+What should be done with blocked dust filters?,solar_inverter_sop_test.md
+What should be checked on ventilation openings?,solar_inverter_sop_test.md
+What should be inspected on heat sinks?,solar_inverter_sop_test.md
+How should fan feedback be checked?,solar_inverter_sop_test.md
+When should derating temperature be recorded?,solar_inverter_sop_test.md
+What should be compared with historical temperature trends?,solar_inverter_sop_test.md
+What must be checked for DC input imbalance?,solar_inverter_sop_test.md
+What should be inspected when string current is abnormal?,solar_inverter_sop_test.md
+What should affected strings be compared with?,solar_inverter_sop_test.md
+What connector damage signs should be checked?,solar_inverter_sop_test.md
+When must DC connectors not be disconnected?,solar_inverter_sop_test.md
+What is required before inverter maintenance?,solar_inverter_sop_test.md
+How should absence of voltage be verified?,solar_inverter_sop_test.md
+What PPE is needed for energized diagnostic work?,solar_inverter_sop_test.md
+What should be checked about test instruments?,solar_inverter_sop_test.md
+What cable defects should be inspected?,solar_inverter_sop_test.md
+What cable-routing problems should be checked?,solar_inverter_sop_test.md
+What must be confirmed before reconnecting a string?,solar_inverter_sop_test.md
+How should connector compatibility be confirmed?,solar_inverter_sop_test.md
+What should happen to damaged connectors?,solar_inverter_sop_test.md
+What should be checked on enclosure seals?,solar_inverter_sop_test.md
+What AC terminal condition should be inspected?,solar_inverter_sop_test.md
+What value should terminals be tightened to?,solar_inverter_sop_test.md
+Where should terminal torque be recorded?,solar_inverter_sop_test.md
+What should be checked across AC phases?,solar_inverter_sop_test.md
+What breaker indication should be inspected?,solar_inverter_sop_test.md
+What transformer setting should be confirmed?,solar_inverter_sop_test.md
+What alarms should be reviewed before reset?,solar_inverter_sop_test.md
+Which power settings should be checked?,solar_inverter_sop_test.md
+What should match the dispatch instruction?,solar_inverter_sop_test.md
+What controller condition should be confirmed?,solar_inverter_sop_test.md
+What links should be checked for communication errors?,solar_inverter_sop_test.md
+What should be reviewed before firmware updates?,solar_inverter_sop_test.md
+What is required for firmware updates?,solar_inverter_sop_test.md
+What should be backed up before parameter changes?,solar_inverter_sop_test.md
+What parameter source is not approved?,solar_inverter_sop_test.md
+What should be verified about the inverter clock?,solar_inverter_sop_test.md
+What timestamps should be compared?,solar_inverter_sop_test.md
+Which alarm should be recorded first?,solar_inverter_sop_test.md
+What should be avoided when alarms recur?,solar_inverter_sop_test.md
+What ticket is needed for repeated derating?,solar_inverter_sop_test.md
+What should a maintenance ticket include?,solar_inverter_sop_test.md
+What should be attached to troubleshooting records?,solar_inverter_sop_test.md
+Who should own the maintenance ticket?,solar_inverter_sop_test.md
+What should be checked on nearby inverters?,solar_inverter_sop_test.md
+What should be used as a performance reference?,solar_inverter_sop_test.md
+What should be inspected when DC power is reduced?,solar_inverter_sop_test.md
+What environmental change should be checked near the array?,solar_inverter_sop_test.md
+What should be reviewed when array orientation is abnormal?,solar_inverter_sop_test.md
+What sensor readings should be validated?,solar_inverter_sop_test.md
+How should irradiance sensors be maintained?,solar_inverter_sop_test.md
+What should be checked when comparing string performance?,solar_inverter_sop_test.md
+What event should be reviewed for surge damage?,solar_inverter_sop_test.md
+What should be inspected after lightning?,solar_inverter_sop_test.md
+What should happen to operated surge protection devices?,solar_inverter_sop_test.md
+What continuity should be checked?,solar_inverter_sop_test.md
+What should be inspected on the inverter earth connection?,solar_inverter_sop_test.md
+What bonding condition should be confirmed?,solar_inverter_sop_test.md
+When should the inverter door remain closed?,solar_inverter_sop_test.md
+What type of area is needed for connector inspection?,solar_inverter_sop_test.md
+What must be kept out of the cooling path?,solar_inverter_sop_test.md
+What cable-trench damage should be checked?,solar_inverter_sop_test.md
+What should be done to cable entries after maintenance?,solar_inverter_sop_test.md
+What should be checked on warning labels?,solar_inverter_sop_test.md
+What should be clear around the inverter?,solar_inverter_sop_test.md
+What fire system status should be confirmed?,solar_inverter_sop_test.md
+What instructions should be posted nearby?,solar_inverter_sop_test.md
+Who must be notified before inverter isolation?,solar_inverter_sop_test.md
+What should happen to the generation plan?,solar_inverter_sop_test.md
+What isolation details should be recorded?,solar_inverter_sop_test.md
+What must be checked before re-energizing?,solar_inverter_sop_test.md
+What should be removed before energizing?,solar_inverter_sop_test.md
+How should isolators be restored?,solar_inverter_sop_test.md
+What should be observed after restoration?,solar_inverter_sop_test.md
+What should be confirmed after startup?,solar_inverter_sop_test.md
+What should be monitored after maintenance?,solar_inverter_sop_test.md
+What should be compared after maintenance?,solar_inverter_sop_test.md
+What final temperature detail should be recorded?,solar_inverter_sop_test.md
+What should be confirmed under comparable conditions?,solar_inverter_sop_test.md
+Who should receive unresolved fault escalations?,solar_inverter_sop_test.md
+What part number should be used for replacement?,solar_inverter_sop_test.md
+What should be recorded for replaced power components?,solar_inverter_sop_test.md
+Where should removed electronic parts go?,solar_inverter_sop_test.md
+When should the inverter maintenance history be updated?,solar_inverter_sop_test.md
+What is required before closing the work order?,solar_inverter_sop_test.md
+When should repeated failures be reviewed?,solar_inverter_sop_test.md
+How should inverter availability be trended?,solar_inverter_sop_test.md
+Who should receive solar maintenance lessons?,solar_inverter_sop_test.md
+What should be verified before planned intervention?,solar_inverter_sop_test.md
+When should work stop and be escalated?,solar_inverter_sop_test.md
+What should be confirmed before wind turbine maintenance?,wind_turbine_maintenance_test.md
+What should be reviewed before entering a nacelle?,wind_turbine_maintenance_test.md
+What isolation is required before nacelle entry?,wind_turbine_maintenance_test.md
+What must be installed before work near rotating parts?,wind_turbine_maintenance_test.md
+What should happen before opening hydraulic components?,wind_turbine_maintenance_test.md
+What protection is needed at height?,wind_turbine_maintenance_test.md
+What should be inspected before tower climbing?,wind_turbine_maintenance_test.md
+What should be checked on tower access ladders?,wind_turbine_maintenance_test.md
+Where should climbing equipment be attached?,wind_turbine_maintenance_test.md
+What communication should be established with control room?,wind_turbine_maintenance_test.md
+What should be recorded before external work?,wind_turbine_maintenance_test.md
+When should climbing be suspended?,wind_turbine_maintenance_test.md
+What forecast should be checked before nacelle access?,wind_turbine_maintenance_test.md
+When should work stop due to lightning?,wind_turbine_maintenance_test.md
+What should be inspected in the nacelle?,wind_turbine_maintenance_test.md
+How should tools and oil containers be managed?,wind_turbine_maintenance_test.md
+At what condition should gearbox oil level be checked?,wind_turbine_maintenance_test.md
+What should gearbox oil be inspected for?,wind_turbine_maintenance_test.md
+How should an oil sample be collected?,wind_turbine_maintenance_test.md
+What should be written on an oil sample label?,wind_turbine_maintenance_test.md
+What should laboratory results be reviewed for?,wind_turbine_maintenance_test.md
+What should be checked on magnetic drain plugs?,wind_turbine_maintenance_test.md
+What should be inspected on gearbox breathers?,wind_turbine_maintenance_test.md
+What gearbox cooling equipment should be checked?,wind_turbine_maintenance_test.md
+How should gearbox temperature be recorded?,wind_turbine_maintenance_test.md
+What should gearbox temperature be compared with?,wind_turbine_maintenance_test.md
+Which vibration frequencies should be reviewed?,wind_turbine_maintenance_test.md
+What should vibration levels be compared across?,wind_turbine_maintenance_test.md
+What sensor problem should be checked?,wind_turbine_maintenance_test.md
+What should be verified about vibration sensor cables?,wind_turbine_maintenance_test.md
+What should be inspected on bearing housings?,wind_turbine_maintenance_test.md
+What changes in sound should be noted?,wind_turbine_maintenance_test.md
+What weather event should be reviewed during vibration analysis?,wind_turbine_maintenance_test.md
+At what operating condition should vibration be compared?,wind_turbine_maintenance_test.md
+What should be recorded during vibration measurement?,wind_turbine_maintenance_test.md
+Why should one vibration reading not be used alone?,wind_turbine_maintenance_test.md
+Who receives a rising vibration trend?,wind_turbine_maintenance_test.md
+What should be inspected on the main bearing?,wind_turbine_maintenance_test.md
+What should lubrication quantity follow?,wind_turbine_maintenance_test.md
+Which lubricant should be used?,wind_turbine_maintenance_test.md
+What grease practice is prohibited?,wind_turbine_maintenance_test.md
+What lubricant details should be recorded?,wind_turbine_maintenance_test.md
+What should be checked on the automatic lubrication pump?,wind_turbine_maintenance_test.md
+What should lubrication lines be inspected for?,wind_turbine_maintenance_test.md
+What brake component thickness should be checked?,wind_turbine_maintenance_test.md
+What should be checked on the brake disc?,wind_turbine_maintenance_test.md
+What should hydraulic brake pressure be compared with?,wind_turbine_maintenance_test.md
+What should be checked before pitch maintenance?,wind_turbine_maintenance_test.md
+What should be checked on the pitch battery?,wind_turbine_maintenance_test.md
+What feedback signal should be verified for each blade?,wind_turbine_maintenance_test.md
+What should be inspected on pitch bearings?,wind_turbine_maintenance_test.md
+What records should be checked for blade bolts?,wind_turbine_maintenance_test.md
+What sequence should be used for blade bolt torque?,wind_turbine_maintenance_test.md
+What blade surface defects should be inspected?,wind_turbine_maintenance_test.md
+What should be checked on blade leading edges?,wind_turbine_maintenance_test.md
+How should blade findings be recorded?,wind_turbine_maintenance_test.md
+What equipment is needed for external blade inspection?,wind_turbine_maintenance_test.md
+What certification is required for rope access?,wind_turbine_maintenance_test.md
+What zone should be established below elevated work?,wind_turbine_maintenance_test.md
+How should external tools be secured?,wind_turbine_maintenance_test.md
+What should be checked on yaw motor and gearbox?,wind_turbine_maintenance_test.md
+What should be inspected on yaw brakes?,wind_turbine_maintenance_test.md
+What should yaw alignment sensors provide?,wind_turbine_maintenance_test.md
+What should be checked on yaw cables?,wind_turbine_maintenance_test.md
+What should be inspected on slip rings?,wind_turbine_maintenance_test.md
+What should be confirmed about generator cooling airflow?,wind_turbine_maintenance_test.md
+What generator trend should be checked?,wind_turbine_maintenance_test.md
+What should be inspected on the generator coupling?,wind_turbine_maintenance_test.md
+What should be verified after drive-train work?,wind_turbine_maintenance_test.md
+What converter components should be inspected?,wind_turbine_maintenance_test.md
+What should be checked on converter connections?,wind_turbine_maintenance_test.md
+What should be confirmed about cabinet doors and seals?,wind_turbine_maintenance_test.md
+What circuits should be tested?,wind_turbine_maintenance_test.md
+What protection should be available before restart?,wind_turbine_maintenance_test.md
+What should be checked in the control system communication?,wind_turbine_maintenance_test.md
+Where should software changes be recorded?,wind_turbine_maintenance_test.md
+What should be backed up before controller changes?,wind_turbine_maintenance_test.md
+What should be reviewed before clearing fault history?,wind_turbine_maintenance_test.md
+What should not be done with recurring faults?,wind_turbine_maintenance_test.md
+What should be inspected on tower bolts?,wind_turbine_maintenance_test.md
+What should be checked around tower flanges?,wind_turbine_maintenance_test.md
+What tower lighting should be verified?,wind_turbine_maintenance_test.md
+What should the tower base be free of?,wind_turbine_maintenance_test.md
+What should be inspected for cable loops?,wind_turbine_maintenance_test.md
+What transformer conditions should be checked?,wind_turbine_maintenance_test.md
+What should be inspected on transformer bushings?,wind_turbine_maintenance_test.md
+What should be inspected on earthing connections?,wind_turbine_maintenance_test.md
+What should be checked after a lightning event?,wind_turbine_maintenance_test.md
+What must happen before releasing the turbine?,wind_turbine_maintenance_test.md
+What must be restored before service return?,wind_turbine_maintenance_test.md
+When can the rotor lock be removed?,wind_turbine_maintenance_test.md
+Who should be notified before starting the turbine?,wind_turbine_maintenance_test.md
+What should be monitored after maintenance?,wind_turbine_maintenance_test.md
+What should post-maintenance readings be compared with?,wind_turbine_maintenance_test.md
+What should be recorded in the work order?,wind_turbine_maintenance_test.md
+Who should analyse unresolved gearbox symptoms?,wind_turbine_maintenance_test.md
+When should maintenance findings be reviewed?,wind_turbine_maintenance_test.md
+Where should wind maintenance lessons be included?,wind_turbine_maintenance_test.md

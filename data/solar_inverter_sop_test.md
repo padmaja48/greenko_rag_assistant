@@ -1,0 +1,102 @@
+﻿# Solar Inverter SOP
+If inverter temperature exceeds 75C, inspect cooling fans, dust filters, ambient temperature, and DC input imbalance. If repeated derating occurs, create a priority maintenance ticket and verify SCADA alarms.
+- Confirm the inverter identification before starting troubleshooting.
+- Review inverter status and alarm history in SCADA.
+- Record DC voltage and current for every affected input.
+- Compare the measured values with the approved operating range.
+- Check inverter temperature before opening the enclosure.
+- Allow hot components to cool before physical inspection.
+- Inspect cooling fans for rotation and unusual noise.
+- Clean or replace blocked dust filters using approved methods.
+- Check ambient temperature around the inverter enclosure.
+- Remove stored materials that restrict cooling airflow.
+- Verify ventilation openings are not obstructed.
+- Inspect heat sinks for dust accumulation.
+- Check fan status feedback against actual fan operation.
+- Record the temperature at which derating begins.
+- Compare derating events with historical temperature trends.
+- Check each DC input for current imbalance.
+- Inspect string fuses when one input current is abnormal.
+- Compare affected strings with the string monitoring dashboard.
+- Look for loose or discolored DC connector housings.
+- Do not disconnect DC connectors under load.
+- Apply the approved electrical isolation before maintenance.
+- Verify absence of voltage with a rated test instrument.
+- Use arc-rated PPE for energized diagnostic work.
+- Check test instruments for calibration validity.
+- Inspect DC cables for cuts or insulation damage.
+- Check cable routing for sharp bends and abrasion.
+- Verify connector polarity before reconnecting a string.
+- Confirm connector types are compatible before mating them.
+- Replace damaged connectors with approved components.
+- Check enclosure seals for water or dust ingress.
+- Inspect AC terminals for heat discoloration.
+- Torque terminals to the manufacturer-approved value.
+- Record terminal torque in the maintenance report.
+- Check AC voltage balance across all phases.
+- Inspect the AC breaker for trip indications.
+- Confirm the transformer tap position is approved.
+- Review grid voltage alarms before resetting the inverter.
+- Check reactive power and power factor settings.
+- Verify active power limits match the dispatch instruction.
+- Confirm plant controller communication is healthy.
+- Check fiber or network links for communication errors.
+- Review the inverter firmware version before updating software.
+- Use an approved change record for firmware updates.
+- Back up configuration parameters before making changes.
+- Do not load parameters from an unapproved device.
+- Verify the inverter clock is synchronized with SCADA.
+- Compare inverter event timestamps with plant timestamps.
+- Record the first alarm in a recurring alarm sequence.
+- Avoid repeated resets without identifying the initiating fault.
+- Create a priority maintenance ticket for repeated derating.
+- Include alarm codes and operating conditions in the ticket.
+- Attach trend screenshots to the troubleshooting record.
+- Confirm the ticket owner before leaving the work area.
+- Check whether nearby inverters show the same symptom.
+- Compare performance with an unaffected reference inverter.
+- Inspect module soiling when DC input power is reduced.
+- Check for shading changes near the affected inverter block.
+- Review tracker status when array orientation is abnormal.
+- Confirm irradiance sensor readings are plausible.
+- Clean irradiance sensors according to the site procedure.
+- Check module temperature when comparing string performance.
+- Review recent storms for possible surge damage.
+- Inspect surge protection indicators after a lightning event.
+- Replace operated surge protection devices before re-energization.
+- Check grounding continuity during scheduled maintenance.
+- Inspect the inverter earth connection for corrosion.
+- Confirm equipotential bonding is intact around the enclosure.
+- Keep the inverter door closed during rain.
+- Use a dry and clean work area for connector inspection.
+- Prevent foreign objects from entering the cooling path.
+- Check for rodent damage in cable trenches.
+- Seal cable entries after completing maintenance.
+- Verify warning labels are legible and securely attached.
+- Keep the inverter clearance zone free of vegetation.
+- Check fire detection status where installed.
+- Confirm emergency shutdown instructions are posted nearby.
+- Notify the control room before isolating an operating inverter.
+- Confirm the affected inverter is removed from the generation plan.
+- Record the isolation start time and responsible person.
+- Recheck all covers and fasteners before restoration.
+- Remove tools and temporary test leads before energizing.
+- Restore isolators in the approved sequence.
+- Observe startup current and voltage after restoration.
+- Confirm the inverter reaches the expected operating state.
+- Verify SCADA values update after communication is restored.
+- Monitor alarms for at least one complete operating cycle.
+- Compare post-maintenance output with the reference inverter.
+- Record final temperature and cooling fan status.
+- Confirm derating does not recur under comparable conditions.
+- Escalate unresolved faults to the authorized service provider.
+- Use the approved spare-part number for component replacement.
+- Record serial numbers of replaced power components.
+- Return removed electronic parts for failure analysis when required.
+- Update the inverter maintenance history after the task.
+- Close the work order only after evidence is attached.
+- Review repeated failures during the monthly reliability meeting.
+- Trend inverter availability by block and by month.
+- Share lessons learned with the solar operations team.
+- Verify the SOP revision before every planned intervention.
+- Stop work and escalate any condition outside the approved procedure.

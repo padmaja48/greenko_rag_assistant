@@ -1,0 +1,102 @@
+﻿# Hydro Safety Brief
+Before spillway gate inspection, verify lockout-tagout, water level, upstream flow, communication with control room, and emergency evacuation route readiness.
+- Conduct a pre-job briefing before entering the hydro work area.
+- Confirm the work permit is approved for the planned inspection.
+- Identify every energy source connected to the spillway gate system.
+- Apply lockout-tagout before removing guards or entering danger zones.
+- Test isolation effectiveness using an approved zero-energy check.
+- Keep keys for personal locks under the control of their owners.
+- Confirm the control room acknowledges the isolation boundary.
+- Record gate position before beginning inspection work.
+- Check upstream water level against the safe work limit.
+- Monitor upstream flow throughout the inspection.
+- Stop work when water level exceeds the approved threshold.
+- Confirm downstream discharge conditions before opening access routes.
+- Inspect walkways for standing water and slippery surfaces.
+- Wear a personal flotation device where a fall into water is possible.
+- Use approved fall protection near unguarded edges.
+- Inspect harnesses and lanyards before each use.
+- Keep three points of contact on wet access stairs.
+- Maintain clear access to emergency ladders.
+- Check that emergency lighting works in the inspection area.
+- Verify the evacuation route is free of tools and materials.
+- Confirm the muster point with every member of the work party.
+- Keep a current headcount during entry and exit.
+- Establish radio communication with the control room.
+- Perform a radio check before starting the task.
+- Carry a backup communication method in low-signal areas.
+- Report loss of communication and suspend exposed work.
+- Review the site emergency response plan before mobilization.
+- Confirm rescue equipment is available and accessible.
+- Verify rescue personnel are briefed on the gate location.
+- Do not rely on untrained workers for water rescue.
+- Check weather forecasts before outdoor hydro inspections.
+- Stop exposed work during lightning within the site limit.
+- Reassess flood risk after intense rainfall upstream.
+- Check debris screens for blockage from floating material.
+- Never stand directly below suspended gate components.
+- Barricade the area below lifting operations.
+- Inspect hoists and lifting slings before use.
+- Confirm lifting equipment capacity exceeds the planned load.
+- Use a banksman for blind lifting movements.
+- Keep hands clear of pinch points around gate mechanisms.
+- Use tools with insulated handles near electrical equipment.
+- Verify portable electrical tools have current inspection tags.
+- Use residual-current protection for temporary electrical supplies.
+- Route cables away from water and pedestrian paths.
+- Keep electrical panels closed against moisture ingress.
+- Test gas detection when entering an enclosed hydro space.
+- Follow confined-space entry requirements where applicable.
+- Assign an attendant for every confined-space entry.
+- Maintain continuous atmosphere monitoring during entry.
+- Prepare a non-entry rescue method before confined-space work.
+- Ventilate enclosed areas using approved equipment.
+- Stop entry when oxygen or contaminant readings are unsafe.
+- Check for oil leaks around hydraulic power units.
+- Clean hydraulic oil promptly to prevent slips and fire risk.
+- Depressurize hydraulic circuits before maintenance.
+- Verify stored pressure is released at designated points.
+- Use chemical gloves when handling hydraulic fluids.
+- Keep safety data sheets available for site chemicals.
+- Label temporary chemical containers clearly.
+- Dispose of oily rags in approved fire-resistant containers.
+- Confirm adequate ventilation during welding or cutting.
+- Obtain a hot-work permit before using ignition sources.
+- Remove combustible material from the hot-work area.
+- Provide a fire watch after hot work is complete.
+- Check fire extinguishers before beginning hot work.
+- Protect nearby cables from sparks and heat.
+- Use hearing protection near operating turbines and pumps.
+- Wear eye protection during cleaning and inspection tasks.
+- Use head protection where overhead hazards exist.
+- Select footwear with slip-resistant soles for wet floors.
+- Inspect handrails and grating before relying on them.
+- Report damaged grating immediately and isolate the area.
+- Keep drainage channels clear during the rainy season.
+- Do not walk on unsupported covers or temporary plates.
+- Use designated routes around open channels.
+- Secure loose items before high-flow operations begin.
+- Confirm no personnel remain in the restricted zone before a gate test.
+- Announce gate movement over the agreed communication channel.
+- Use slow controlled movement for functional gate testing.
+- Stop the test if position feedback disagrees with observation.
+- Record abnormal noise or vibration from gate equipment.
+- Investigate repeated gate travel interruptions before restarting.
+- Verify limit switches after maintenance on gate drives.
+- Check emergency stop operation during scheduled testing.
+- Restore guards and covers before returning equipment to service.
+- Remove tools and temporary supports during closeout.
+- Perform a final area inspection with the permit issuer.
+- Close the permit only after all workers sign out.
+- Remove locks only by the person who applied them.
+- Confirm the control room receives the isolation release notice.
+- Update the gate inspection record with measured conditions.
+- Attach photographs of defects to the maintenance work order.
+- Classify defects by risk before scheduling repairs.
+- Escalate defects that could affect flood protection.
+- Review near misses at the next hydro safety meeting.
+- Share corrective actions with all operating shifts.
+- Verify contractors understand local water hazards.
+- Confirm visitor access is controlled during inspections.
+- Keep emergency numbers posted at the control point.
+- Record lessons learned after completing the hydro safety task.

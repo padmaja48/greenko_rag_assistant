@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Greenko Energy Ops RAG Assistant</title>
+  <style>
+    :root {
+      --bg: #f3f7f4;
+      --ink: #12241c;
+      --brand: #12372a;
+      --accent: #2d6a4f;
+      --card: #ffffff;
+      --muted: #5b6b63;
+      --line: #d7e3db;
+      --warn: #9a3412;
+      --ok: #166534;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #d8f3dc 0%, transparent 40%),
+        linear-gradient(180deg, #eef6f0 0%, var(--bg) 55%, #e8f0ea 100%);
+      min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(120deg, #0f2a20, var(--brand) 55%, #1b4332);
+      color: white;
+      padding: 28px 24px 32px;
+    }
+    header .wrap, main { max-width: 920px; margin: 0 auto; }
+    .eyebrow {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity: 0.85;
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    header p { margin: 0; max-width: 62ch; opacity: 0.92; line-height: 1.45; }
+    main { padding: 24px 16px 48px; }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 30px rgba(18, 55, 42, 0.06);
+    }
+    label { display: block; font-weight: 600; margin-bottom: 8px; }
+    textarea {
+      width: 100%;
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font: inherit;
+      resize: vertical;
+    }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    .test-status { margin-top: 10px; }
+    button {
+      background: var(--brand);
+      color: white;
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 16px;
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    button.secondary { background: #345c4a; }
+    button:disabled { opacity: 0.6; cursor: wait; }
+    .samples { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .chip {
+      border: 1px solid var(--line);
+      background: #f7fbf8;
+      color: var(--brand);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    h2 { margin: 0 0 10px; font-size: 1.1rem; color: var(--brand); }
+    .muted { color: var(--muted); font-size: 0.95rem; }
+    .answer {
+      white-space: pre-wrap;
+      line-height: 1.5;
+      background: #f7fbf8;
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 0 10px 10px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .badge.ok { background: #dcfce7; color: var(--ok); }
+    .badge.warn { background: #ffedd5; color: var(--warn); }
+    .citations { display: flex; flex-wrap: wrap; gap: 8px; }
+    .cite {
+      background: #e9f5ee;
+      color: var(--brand);
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-family: Consolas, monospace;
+    }
+    .chunk {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+      background: #fcfefd;
+    }
+    .chunk .meta {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #0f172a;
+      color: #e5e7eb;
+      padding: 14px;
+      border-radius: 12px;
+      overflow: auto;
+      font-size: 12px;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="eyebrow">Greenko · GenAI Intern Case Study</div>
+      <h1>Energy Operations Document RAG Assistant</h1>
+      <p>
+        Ask operational questions about solar, wind, hydro, and grid SOPs.
+        Answers include citations, retrieval evidence, and a grounding check.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <label for="q">Operational question</label>
+      <textarea id="q" placeholder="Example: What should be checked for inverter derating?"></textarea>
+      <div class="samples">
+        <button type="button" class="chip" data-q="What should be checked for inverter derating?">Inverter derating</button>
+        <button type="button" class="chip" data-q="How should gearbox vibration be investigated?">Gearbox vibration</button>
+        <button type="button" class="chip" data-q="What must be verified before spillway gate inspection?">Hydro safety</button>
+        <button type="button" class="chip" data-q="What should generation deviation be reviewed against?">Grid deviation</button>
+        <button type="button" class="chip" data-q="How do I bake a chocolate cake?">Off-topic (hallucination test)</button>
+      </div>
+      <div class="actions">
+        <button id="askBtn" onclick="ask()">Ask assistant</button>
+        <button class="secondary" onclick="runEval()">Run evaluation</button>
+        <button class="secondary" id="testQuestionBtn" onclick="loadRandomTestQuestion()">Random test question</button>
+      </div>
+      <p id="testQuestionStatus" class="muted test-status hidden"></p>
+    </section>
+
+    <section class="panel hidden" id="resultPanel">
+      <h2>Answer</h2>
+      <div id="badge" class="badge"></div>
+      <div id="answer" class="answer"></div>
+
+      <h2 style="margin-top:18px">Citations</h2>
+      <div id="citations" class="citations"></div>
+
+      <h2 style="margin-top:18px">Retrieval evidence</h2>
+      <div id="evidence"></div>
+
+      <h2 style="margin-top:18px">Hallucination check</h2>
+      <p id="hallucination" class="muted"></p>
+
+      <h2 style="margin-top:18px">Limitations</h2>
+      <p id="limitations" class="muted"></p>
+    </section>
+
+    <section class="panel hidden" id="evalPanel">
+      <h2>Evaluation results</h2>
+      <pre id="evalOut"></pre>
+    </section>
+  </main>
+
+  <script>
+    let lastRandomQuestion = "";
+
+    function clearExpectedSourceStatus(message) {
+      const status = document.getElementById("testQuestionStatus");
+      if (!status) return;
+      if (message) {
+        status.textContent = message;
+        status.classList.remove("hidden");
+      } else {
+        status.textContent = "";
+        status.classList.add("hidden");
+      }
+    }
+
+    document.querySelectorAll(".chip").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        document.getElementById("q").value = btn.dataset.q;
+        lastRandomQuestion = "";
+        clearExpectedSourceStatus();
+      });
+    });
+
+    document.getElementById("q").addEventListener("input", () => {
+      const current = document.getElementById("q").value.trim();
+      if (lastRandomQuestion && current !== lastRandomQuestion) {
+        lastRandomQuestion = "";
+        clearExpectedSourceStatus(
+          "Custom question (expected source cleared — not from questions_test.csv)."
+        );
+      }
+    });
+
+    async function ask() {
+      const text = document.getElementById("q").value.trim();
+      const askBtn = document.getElementById("askBtn");
+      askBtn.disabled = true;
+      askBtn.textContent = "Thinking…";
+      if (!lastRandomQuestion || text !== lastRandomQuestion) {
+        clearExpectedSourceStatus();
+      }
+      try {
+        const r = await fetch("/api/ask", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text }),
+        });
+        const data = await r.json();
+        renderResult(data);
+      } catch (e) {
+        document.getElementById("resultPanel").classList.remove("hidden");
+        document.getElementById("answer").textContent =
+          "Could not reach the backend. Start FastAPI with: uvicorn backend.app:app --reload";
+      } finally {
+        askBtn.disabled = false;
+        askBtn.textContent = "Ask assistant";
+      }
+    }
+
+    function renderResult(data) {
+      const panel = document.getElementById("resultPanel");
+      panel.classList.remove("hidden");
+      document.getElementById("answer").innerHTML = formatAnswer(data.answer || "");
+      document.getElementById("limitations").textContent = data.limitations || "";
+
+      const hc = data.hallucination_check || {};
+      const badge = document.getElementById("badge");
+      if (hc.abstained) {
+        badge.textContent = "Abstained / no evidence";
+        badge.className = "badge warn";
+      } else if (hc.supported) {
+        badge.textContent = "Grounded / supported";
+        badge.className = "badge ok";
+      } else {
+        badge.textContent = "Low support / review needed";
+        badge.className = "badge warn";
+      }
+
+      const cites = document.getElementById("citations");
+      cites.innerHTML = "";
+      (data.citations || []).forEach((c) => {
+        const el = document.createElement("span");
+        el.className = "cite";
+        el.textContent = c;
+        cites.appendChild(el);
+      });
+      if (!(data.citations || []).length) {
+        cites.innerHTML = '<span class="muted">No citations (insufficient evidence)</span>';
+      }
+
+      const evidence = document.getElementById("evidence");
+      evidence.innerHTML = "";
+      const chunks = data.retrieved_chunks || [];
+      if (!chunks.length) {
+        evidence.innerHTML = '<p class="muted">No strong retrieval evidence for this question.</p>';
+      } else {
+        chunks.forEach((chunk) => {
+          const div = document.createElement("div");
+          div.className = "chunk";
+          div.innerHTML =
+            `<div class="meta">${chunk.source} · score ${chunk.score} · chunk ${chunk.chunk_id}</div>` +
+            `<div>${escapeHtml(chunk.text)}</div>`;
+          evidence.appendChild(div);
+        });
+      }
+
+      document.getElementById("hallucination").textContent =
+        `${hc.notes || ""} (overlap_ratio=${hc.overlap_ratio ?? "n/a"})`;
+    }
+
+    async function runEval() {
+      const panel = document.getElementById("evalPanel");
+      panel.classList.remove("hidden");
+      document.getElementById("evalOut").textContent = "Running…";
+      try {
+        const r = await fetch("/api/evaluate");
+        const data = await r.json();
+        document.getElementById("evalOut").textContent = JSON.stringify(data, null, 2);
+      } catch (e) {
+        document.getElementById("evalOut").textContent = "Evaluation failed: " + e;
+      }
+    }
+
+    async function loadRandomTestQuestion() {
+      const button = document.getElementById("testQuestionBtn");
+      const status = document.getElementById("testQuestionStatus");
+      button.disabled = true;
+      button.textContent = "Choosing…";
+      try {
+        const r = await fetch("/api/random-test-question");
+        const data = await r.json();
+        if (!r.ok || data.error) {
+          throw new Error(data.error || "Could not load a test question.");
+        }
+        document.getElementById("q").value = data.question;
+        lastRandomQuestion = String(data.question || "").trim();
+        status.textContent =
+          `Loaded from ${data.source_dataset} (${data.total_questions} questions) — expected source: ${data.expected_source}`;
+        status.classList.remove("hidden");
+      } catch (e) {
+        lastRandomQuestion = "";
+        status.textContent = "Could not load a random test question: " + e.message;
+        status.classList.remove("hidden");
+      } finally {
+        button.disabled = false;
+        button.textContent = "Random test question";
+      }
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;");
+    }
+
+    function formatAnswer(str) {
+      // Escape first, then render common markdown so **bold** shows as bold (not stars).
+      return escapeHtml(str)
+        .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+        .replace(/(^|[^*])\*(?!\s)(.+?)\*(?!\*)/g, "$1<em>$2</em>")
+        .replace(/\n/g, "<br>");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+﻿# Grid Operations Note
+Generation deviation should be reviewed against forecast, irradiation, wind speed, outage logs, curtailment instructions, and grid frequency events before escalation.
+- Compare actual generation with the latest approved day-ahead forecast.
+- Record the time and magnitude of every generation deviation.
+- Check plant availability before assigning a deviation to weather conditions.
+- Confirm whether an active curtailment instruction affected export.
+- Review grid frequency trends during the deviation interval.
+- Verify the quality flag on every SCADA measurement used in the review.
+- Use the approved control-room clock for event timestamps.
+- Check the last communication from the grid load dispatch centre.
+- Escalate unexplained deviations through the shift supervisor.
+- Preserve the original forecast version with the deviation report.
+- Compare inverter availability with the plant-level export meter.
+- Check whether planned maintenance reduced scheduled generation.
+- Review breaker status changes before investigating equipment faults.
+- Confirm that metering data is synchronized across plant and grid systems.
+- Log the feeder affected by each transmission constraint.
+- Check for weather warnings that explain a rapid output change.
+- Review irradiation data when analysing solar generation deviation.
+- Review wind speed and wind direction when analysing wind deviation.
+- Validate the export meter multiplier before calculating energy variance.
+- Record the operating reserve requested by the control room.
+- Check whether reactive power limits constrained active power output.
+- Confirm that automatic generation control was enabled when required.
+- Review dispatch instructions in chronological order.
+- Mark missing telemetry separately from zero generation.
+- Check the plant communication alarm history for data gaps.
+- Compare five-minute averages before comparing hourly totals.
+- Use the approved deviation threshold for escalation decisions.
+- Notify the control room before changing a grid-facing setpoint.
+- Record the operator who acknowledged each dispatch instruction.
+- Check whether a protection relay operated during the event.
+- Verify transformer loading against the current operating limit.
+- Review bus voltage before attributing reduced export to generation assets.
+- Check line congestion notices for the affected corridor.
+- Confirm the active topology in the single-line diagram.
+- Keep a copy of the final dispatch schedule with the daily log.
+- Check whether a plant islanding event was declared.
+- Record the restoration time after a grid interruption.
+- Confirm synchronism checks before reconnecting an isolated unit.
+- Review frequency response performance after a major disturbance.
+- Check under-frequency and over-frequency relay indications.
+- Confirm that curtailment commands were received and understood.
+- Record curtailment start and end times in local standard time.
+- Separate grid-driven curtailment from plant-driven limitation.
+- Reconcile curtailment energy with the dispatch instruction.
+- Check whether ramp-rate limits were active during recovery.
+- Verify the configured ramp rate against the operating procedure.
+- Review ramp compliance using synchronized timestamps.
+- Escalate repeated ramp non-compliance for technical review.
+- Check the latest approved network operating notice.
+- Confirm that the duty engineer reviewed abnormal grid events.
+- Use redundant communications when the primary dispatch link fails.
+- Record the time a backup communication channel was activated.
+- Test the control-room hotline during the scheduled communication check.
+- Report failed telemetry points to the instrumentation owner.
+- Check historian data before relying on a live dashboard screenshot.
+- Confirm that daylight-saving adjustments are not applied to local logs.
+- Use one unit convention for power and energy in every report.
+- Convert readings only after recording the original units.
+- Check the sign convention for import and export measurements.
+- Validate negative export values before treating them as outages.
+- Review the weather station health status with generation data.
+- Check whether sensor icing or soiling affected the weather input.
+- Compare independent meters when a measurement looks anomalous.
+- Document all data substitutions made during an investigation.
+- Obtain supervisor approval for closing an unexplained deviation.
+- Attach relevant alarms to the deviation investigation record.
+- Rank alarms by first occurrence rather than by acknowledgement time.
+- Check the event recorder for millisecond-level sequence information.
+- Preserve relay records before clearing a protection alarm.
+- Confirm that alarm shelving was authorized by the shift lead.
+- Review the daily generation plan at the start of every shift.
+- Compare shift handover notes with the control-room event log.
+- Identify open actions from the previous shift before dispatch changes.
+- Record outstanding grid operator requests in the handover.
+- Verify the emergency contact list at the control desk.
+- Keep the latest grid code revision available to operators.
+- Check compliance obligations before altering protection settings.
+- Do not bypass an interlock without approved authorization.
+- Record any temporary operating restriction with an expiry time.
+- Remove expired restrictions only after confirming safe conditions.
+- Review black-start or restoration instructions during relevant drills.
+- Confirm critical loads are identified in the restoration plan.
+- Check battery backup status for grid communication equipment.
+- Test redundant power supplies according to the maintenance schedule.
+- Report loss of time synchronization on protection devices immediately.
+- Check GPS or network time source health after a timing alarm.
+- Compare event order across protection and SCADA records.
+- Record the cause category selected for each closed event.
+- Use a corrective action when the same deviation recurs.
+- Assign each corrective action an owner and due date.
+- Trend recurring deviations by plant and operating condition.
+- Review monthly deviation trends with the performance team.
+- Check whether forecast bias requires a model update.
+- Share verified operational lessons during the next shift briefing.
+- Archive the signed deviation report in the operations repository.
+- Restrict edits to finalized event records through access control.
+- Verify backups of dispatch and event history data.
+- Test restoration of archived logs during the continuity exercise.
+- Close the investigation only after evidence is attached.
+- Include lessons learned in the next grid operations review.

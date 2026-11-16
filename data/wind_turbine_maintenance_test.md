@@ -1,0 +1,102 @@
+﻿# Wind Turbine Maintenance
+High gearbox vibration combined with rising nacelle temperature may indicate lubrication issues or bearing wear. Recommended checks: vibration spectrum, oil level, oil contamination, and recent wind gust events.
+- Confirm the turbine identification before beginning maintenance.
+- Review the turbine alarm history and current operating state.
+- Apply the turbine isolation procedure before entering the nacelle.
+- Verify rotor lock installation before work near rotating parts.
+- Confirm hydraulic pressure is released before opening components.
+- Use fall protection whenever working at height.
+- Inspect harnesses and lanyards before climbing the tower.
+- Check tower access ladders for damage or contamination.
+- Keep climbing equipment attached to approved anchor points.
+- Establish radio communication with the control room.
+- Record wind speed before starting external work.
+- Suspend climbing when wind speed exceeds the site limit.
+- Check lightning forecasts before nacelle access.
+- Stop work when lightning approaches the turbine area.
+- Inspect nacelle housekeeping before moving around equipment.
+- Keep walkways clear of tools and oil containers.
+- Check gearbox oil level at the specified temperature.
+- Inspect gearbox oil for metal particles and discoloration.
+- Take an oil sample using a clean approved container.
+- Label oil samples with turbine and collection date.
+- Review laboratory results for viscosity changes.
+- Check magnetic drain plugs for abnormal debris.
+- Inspect gearbox breathers for blockage.
+- Confirm gearbox cooling fans operate correctly.
+- Check gearbox heat exchanger for fouling.
+- Record gearbox temperature at a consistent load.
+- Compare gearbox temperature with the historical baseline.
+- Review vibration spectrum for gear mesh frequencies.
+- Compare vibration levels across drive-train bearings.
+- Check accelerometer mounting for looseness.
+- Verify vibration sensor cables are secured.
+- Inspect bearing housings for abnormal heat.
+- Listen for changes in gearbox or bearing noise.
+- Check recent wind gust events before interpreting vibration.
+- Compare vibration at similar rotor speeds.
+- Record the operating power during each vibration reading.
+- Avoid diagnosing vibration from a single reading alone.
+- Escalate a rising vibration trend to the reliability engineer.
+- Inspect main bearing grease condition where applicable.
+- Verify grease quantity against the lubrication schedule.
+- Use only the approved lubricant for each bearing.
+- Do not mix incompatible grease types.
+- Record lubricant batch and quantity during servicing.
+- Check automatic lubrication pump operation.
+- Inspect lubrication lines for leaks or kinks.
+- Confirm brake pads have sufficient remaining thickness.
+- Check brake disc condition for scoring and cracks.
+- Test hydraulic brake pressure against the approved range.
+- Inspect pitch system oil level before pitch maintenance.
+- Check pitch battery condition and charging status.
+- Verify each blade pitch position feedback signal.
+- Inspect pitch bearings for abnormal noise or play.
+- Check blade bolts for correct torque records.
+- Use the approved sequence when checking blade bolt torque.
+- Inspect blade surfaces for cracks and lightning marks.
+- Check blade leading edges for erosion damage.
+- Record blade inspection findings by blade number.
+- Use approved access equipment for external blade inspection.
+- Confirm rope access personnel hold current certification.
+- Establish a ground exclusion zone below elevated work.
+- Secure all tools used outside the nacelle.
+- Use tool lanyards when working above ground level.
+- Check yaw motor and gearbox oil levels.
+- Inspect yaw brake pads for wear.
+- Verify yaw alignment sensors provide stable readings.
+- Check yaw cables for twisting or abrasion.
+- Inspect slip rings for contamination where installed.
+- Confirm generator cooling airflow is unobstructed.
+- Check generator bearing temperature trends.
+- Inspect generator coupling for signs of wear.
+- Verify shaft alignment after drive-train work.
+- Check converter cabinet filters and ventilation fans.
+- Inspect converter connections for heat discoloration.
+- Confirm cabinet doors and seals are secure.
+- Test emergency stop circuits according to the schedule.
+- Verify overspeed protection is available before restart.
+- Check turbine controller communication with the control system.
+- Record software or parameter changes in a change log.
+- Back up controller parameters before authorized changes.
+- Review fault codes before clearing the event history.
+- Do not reset recurring faults without investigation.
+- Inspect tower bolts when scheduled by the maintenance plan.
+- Check tower flange areas for corrosion or cracking.
+- Verify tower lighting and emergency lighting operate.
+- Keep the tower base free of water and oil.
+- Inspect cable loops for clearance and wear.
+- Confirm transformer oil level and temperature where applicable.
+- Check transformer bushings for contamination or damage.
+- Inspect earthing connections for corrosion.
+- Verify surge protection indicators after a lightning event.
+- Remove all tools and temporary barriers before release.
+- Restore guards and covers before returning the turbine to service.
+- Confirm personnel are clear before removing the rotor lock.
+- Notify the control room before starting the turbine.
+- Monitor startup vibration and temperature after maintenance.
+- Compare post-maintenance readings with the baseline.
+- Record corrective actions and replaced parts in the work order.
+- Escalate unresolved gearbox symptoms for specialist analysis.
+- Review maintenance findings during the reliability meeting.
+- Include lessons learned in the next wind maintenance briefing.
