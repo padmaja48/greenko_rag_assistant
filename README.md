@@ -186,6 +186,7 @@ See [DEPLOY.md](DEPLOY.md) for deployment and smoke-test steps.
 - [x] Preprocessing and chunking documented in `backend/rag.py`
 - [x] Setup and run commands
 - [x] Evaluation script and generated results
-- [ ] Add four final screenshots under `docs/screenshots/` (the exact capture checklist is in `DEMO_NOTES.md`)
+- [x] Demo notes and screenshot directory/checklist
+- [ ] Optional PNG captures under `docs/screenshots/` (the required short demo notes are in `DEMO_NOTES.md`)
 - [x] Verify and add the Railway public URL
 - [x] Secrets supplied through environment variables only
